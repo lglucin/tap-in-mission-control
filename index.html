@@ -192,7 +192,7 @@
 
 <header>
   <h1><span>●</span> Mission Control</h1>
-  <div class="updated" id="updated-time">Last updated: 2026-03-22 09:51 PT</div>
+  <div class="updated" id="updated-time">Last updated: 2026-03-22 10:00 PT</div>
 </header>
 
 <div class="grid">
@@ -223,8 +223,8 @@
       <li class="session-item">
         <span class="dot green"></span>
         <div class="session-info">
-          <div class="session-name">#finance</div>
-          <div class="session-meta">discord · main session</div>
+          <div class="session-name">mission-control-refresh</div>
+          <div class="session-meta">cron · isolated · running now</div>
         </div>
         <span class="session-model">sonnet-4-6</span>
       </li>
@@ -235,6 +235,17 @@
   <div class="card full">
     <h2><span class="dot yellow"></span> Scheduled Jobs</h2>
     <ul class="cron-list">
+
+      <li class="cron-item">
+        <div class="cron-header">
+          <span class="cron-name">📊 mission-control-refresh</span>
+          <span class="cron-schedule">*/30 * * * *</span>
+          <span class="badge green">running</span>
+        </div>
+        <div class="cron-desc">Regenerates and redeploys this Mission Control dashboard every 30 minutes</div>
+        <div class="cron-next">▶ Next: today 10:30 AM PT</div>
+        <div class="cron-last">✓ Currently executing</div>
+      </li>
 
       <li class="cron-item">
         <div class="cron-header">
@@ -251,7 +262,7 @@
         <div class="cron-header">
           <span class="cron-name">💰 SPY buy reminder</span>
           <span class="cron-schedule">one-shot</span>
-          <span class="badge yellow">pending</span>
+          <span class="badge yellow">pending · delete after run</span>
         </div>
         <div class="cron-desc">Remind Lloyd to buy SPY after VOO/QQQ/STUB sells execute at market open</div>
         <div class="cron-next">▶ Fires: Mon Mar 23 at 9:15 AM PT</div>
@@ -270,7 +281,7 @@
 
   <!-- Active PRs -->
   <div class="card full">
-    <h2>Active PRs</h2>
+    <h2>Active PRs — lglucin/artgg (21 open)</h2>
     <ul class="pr-list">
       <li>
         <span class="pr-number">#344</span>
@@ -282,7 +293,7 @@
         <span class="pr-number">#329</span>
         <span class="pr-title">Fix/ws double ack and connection</span>
         <span class="pr-branch">fix/ws-double-ack-and-connection</span>
-        <span class="pr-date">Mar 21</span>
+        <span class="pr-date">Mar 20</span>
       </li>
       <li>
         <span class="pr-number">#312</span>
@@ -294,13 +305,43 @@
         <span class="pr-number">#282</span>
         <span class="pr-title">Revert "Feature/about page 2"</span>
         <span class="pr-branch">revert-281-feature/about-page-2</span>
-        <span class="pr-date">Nov 23</span>
+        <span class="pr-date">Nov 18</span>
       </li>
       <li>
         <span class="pr-number">#277</span>
         <span class="pr-title">feat: add containerization for the backend api</span>
         <span class="pr-branch">arigan/containers/phase1</span>
-        <span class="pr-date">Nov 23</span>
+        <span class="pr-date">Nov 7</span>
+      </li>
+      <li>
+        <span class="pr-number">#236</span>
+        <span class="pr-title">[Draft] Add instagram to horizontal dancer card</span>
+        <span class="pr-branch">jess/instagram-horz-card</span>
+        <span class="pr-date">Sep 16</span>
+      </li>
+      <li>
+        <span class="pr-number">#232</span>
+        <span class="pr-title">feat: Add Database Layer v2 and Match API v2</span>
+        <span class="pr-branch">ari/n-dancers-v3</span>
+        <span class="pr-date">Sep 15</span>
+      </li>
+      <li>
+        <span class="pr-number">#231</span>
+        <span class="pr-title">Button Styling Standardization &amp; Admin UI Fixes</span>
+        <span class="pr-branch">hector/admin-ui-fix2</span>
+        <span class="pr-date">Sep 8</span>
+      </li>
+      <li>
+        <span class="pr-number">#228</span>
+        <span class="pr-title">feat: Add support for N dancers per battle</span>
+        <span class="pr-branch">ari/n-dancers-v2</span>
+        <span class="pr-date">Sep 1</span>
+      </li>
+      <li>
+        <span class="pr-number">#216</span>
+        <span class="pr-title">Add keyboard navigation system for admin screensharing</span>
+        <span class="pr-branch">hector/admin-view-screenshare</span>
+        <span class="pr-date">Aug 11</span>
       </li>
     </ul>
   </div>
@@ -316,7 +357,14 @@
 - Orders queued for Mon market open (~$2,200 proceeds)
 - Set cron reminder: Mon Mar 23 9:15 AM PT → buy SPY with proceeds
 - Lloyd asked about Mission Control dashboard → found mission-control.html in workspace
-- Deployed to GitHub Pages with live cron + sessions sections</div>
+- Deployed to GitHub Pages with live cron + sessions sections
+
+## [10:00 PT | Clawdia]
+- Mission Control dashboard auto-refresh cron running (every 30 min)
+- 3 active cron jobs: mission-control-refresh, daily-log, SPY buy reminder
+- 21 open PRs on lglucin/artgg (most recent: #344 mobile judge submit fix)
+- No active sub-agents
+- Memory file for today not yet written (daily-log runs at 11:30 PM)</div>
   </div>
 
   <!-- Quick Links -->
