@@ -192,7 +192,7 @@
 
 <header>
   <h1><span>●</span> Mission Control</h1>
-  <div class="updated" id="updated-time">Last updated: 2026-03-22 10:30 PT</div>
+  <div class="updated" id="updated-time">Last updated: 2026-03-22 11:00 PT</div>
 </header>
 
 <div class="grid">
@@ -218,7 +218,7 @@
 
   <!-- Active Sessions -->
   <div class="card">
-    <h2><span class="dot green"></span> Active Sessions</h2>
+    <h2><span class="dot green"></span> Active Sessions (1)</h2>
     <ul class="session-list">
       <li class="session-item">
         <span class="dot green"></span>
@@ -243,14 +243,14 @@
           <span class="badge green">running</span>
         </div>
         <div class="cron-desc">Regenerates and redeploys this Mission Control dashboard every 30 minutes</div>
-        <div class="cron-next">▶ Next: today 11:00 AM PT</div>
-        <div class="cron-last">⚠ Last run: timeout after 120s — currently executing</div>
+        <div class="cron-next">▶ Next: today 11:30 AM PT</div>
+        <div class="cron-last">⚠ Last run: timeout (120s) — 2 consecutive errors — currently executing</div>
       </li>
 
       <li class="cron-item">
         <div class="cron-header">
           <span class="cron-name">📔 daily-log</span>
-          <span class="cron-schedule">11:30 PM PT daily</span>
+          <span class="cron-schedule">30 23 * * * (11:30 PM PT)</span>
           <span class="badge green">enabled</span>
         </div>
         <div class="cron-desc">Consolidates all OpenClaw + Claude Code activity into memory/YYYY-MM-DD.md</div>
@@ -261,10 +261,10 @@
       <li class="cron-item">
         <div class="cron-header">
           <span class="cron-name">💰 SPY buy reminder</span>
-          <span class="cron-schedule">one-shot</span>
-          <span class="badge yellow">pending · delete after run</span>
+          <span class="cron-schedule">one-shot · 2026-03-23 9:15 AM PT</span>
+          <span class="badge yellow">pending · deletes after run</span>
         </div>
-        <div class="cron-desc">Remind Lloyd to buy SPY after VOO/QQQ/STUB sells execute at market open</div>
+        <div class="cron-desc">Remind Lloyd to buy SPY after VOO/QQQ/STUB sells execute at Mon market open (~$2,200 proceeds)</div>
         <div class="cron-next">▶ Fires: Mon Mar 23 at 9:15 AM PT</div>
       </li>
 
@@ -377,6 +377,14 @@
 - Sessions: 1 active (mission-control-refresh cron, sonnet-4-6)
 - Sub-agents: none
 - 21 open PRs confirmed, most recent #344 (mobile judge submit button fix, Mar 21)
+- No memory/2026-03-22.md yet — daily-log fires at 11:30 PM tonight
+
+## [11:00 PT | Clawdia]
+- Dashboard refresh cron executing (11:00 AM run)
+- 3 cron jobs active: mission-control-refresh (2 consecutive errors/timeout), daily-log (ok), SPY buy reminder (pending Mon 9:15 AM)
+- Sessions: 1 active (this cron session, sonnet-4-6)
+- Sub-agents: none
+- 21 open PRs — top: #344 (mobile judge submit fix, Mar 21), #329 (ws double ack fix, Mar 20)
 - No memory/2026-03-22.md yet — daily-log fires at 11:30 PM tonight</div>
   </div>
 
