@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mission Control — Tap.In</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0d1117;
+    color: #e6edf3;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+    padding: 20px;
+    min-height: 100vh;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #21262d;
+  }
+  header h1 { font-size: 20px; font-weight: 600; letter-spacing: -0.3px; }
+  header h1 span { color: #e63946; }
+  .updated { font-size: 11px; color: #8b949e; }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .card {
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 10px;
+    padding: 18px;
+    overflow: hidden;
+  }
+  .card.full { grid-column: 1 / -1; }
+  .card h2 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #8b949e;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  .dot.green { background: #3fb950; animation: pulse 2s ease-in-out infinite; }
+  .dot.yellow { background: #d29922; animation: pulse 1.5s ease-in-out infinite; }
+  .dot.red { background: #e63946; }
+  .dot.gray { background: #484f58; }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 currentColor; }
+    50% { opacity: 0.6; }
+  }
+
+  /* Agent Status */
+  .agent-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .agent-item label {
+    display: block; font-size: 10px; color: #8b949e;
+    margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .agent-item value { display: block; font-size: 14px; font-weight: 500; }
+
+  /* Sessions */
+  .session-list { list-style: none; }
+  .session-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #21262d;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .session-item:last-child { border-bottom: none; }
+  .session-info { flex: 1; min-width: 0; }
+  .session-name { font-size: 13px; font-weight: 500; }
+  .session-meta { font-size: 11px; color: #8b949e; margin-top: 2px; }
+  .session-model {
+    font-size: 10px; color: #8b949e;
+    background: #1c2128; padding: 2px 7px;
+    border-radius: 4px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    white-space: nowrap;
+  }
+
+  /* Cron Jobs */
+  .cron-list { list-style: none; }
+  .cron-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #21262d;
+  }
+  .cron-item:last-child { border-bottom: none; }
+  .cron-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .cron-name { font-size: 13px; font-weight: 500; }
+  .cron-schedule {
+    font-size: 11px; color: #79c0ff;
+    background: #1c2128; padding: 2px 7px;
+    border-radius: 4px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    white-space: nowrap;
+  }
+  .cron-desc { font-size: 11px; color: #8b949e; margin-top: 3px; }
+  .cron-next { font-size: 11px; color: #3fb950; margin-top: 2px; }
+  .cron-last { font-size: 11px; color: #8b949e; margin-top: 2px; }
+  .badge {
+    font-size: 10px; padding: 1px 7px; border-radius: 10px;
+    font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px;
+    flex-shrink: 0;
+  }
+  .badge.green { background: #0d4429; color: #3fb950; border: 1px solid #1a5e38; }
+  .badge.yellow { background: #2d1f00; color: #d29922; border: 1px solid #4a3200; }
+  .badge.gray { background: #1c2128; color: #8b949e; border: 1px solid #30363d; }
+
+  /* PRs */
+  .pr-list { list-style: none; }
+  .pr-list li {
+    padding: 9px 0; border-bottom: 1px solid #21262d;
+    display: flex; justify-content: space-between;
+    align-items: flex-start; gap: 10px;
+  }
+  .pr-list li:last-child { border-bottom: none; }
+  .pr-number { color: #e63946; font-weight: 600; font-size: 12px; white-space: nowrap; }
+  .pr-title { flex: 1; font-size: 13px; }
+  .pr-branch {
+    font-size: 10px; color: #8b949e; background: #1c2128;
+    padding: 2px 7px; border-radius: 4px;
+    font-family: 'SF Mono', 'Fira Code', monospace; white-space: nowrap;
+  }
+  .pr-date { font-size: 11px; color: #8b949e; white-space: nowrap; }
+
+  /* Memory */
+  .memory-content {
+    font-size: 12px; line-height: 1.7;
+    max-height: 380px; overflow-y: auto;
+    white-space: pre-wrap;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    color: #c9d1d9;
+    scrollbar-width: thin; scrollbar-color: #30363d #161b22;
+  }
+  .memory-content::-webkit-scrollbar { width: 5px; }
+  .memory-content::-webkit-scrollbar-track { background: #161b22; }
+  .memory-content::-webkit-scrollbar-thumb { background: #30363d; border-radius: 3px; }
+
+  /* Links */
+  .links { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .links a {
+    display: block; padding: 10px 14px;
+    background: #1c2128; border: 1px solid #21262d;
+    border-radius: 8px; color: #e6edf3;
+    text-decoration: none; font-size: 12px; font-weight: 500;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .links a:hover { border-color: #e63946; background: #1a1f27; }
+  .links a .link-label { font-size: 10px; color: #8b949e; display: block; margin-bottom: 2px; }
+
+  /* Subagents */
+  .agent-run-list { list-style: none; }
+  .agent-run-item {
+    padding: 10px 0; border-bottom: 1px solid #21262d;
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .agent-run-item:last-child { border-bottom: none; }
+  .agent-run-info { flex: 1; min-width: 0; }
+  .agent-run-task { font-size: 12px; color: #c9d1d9; margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .empty { font-size: 12px; color: #484f58; font-style: italic; padding: 6px 0; }
+
+  @media (max-width: 640px) {
+    body { padding: 12px; }
+    .grid { grid-template-columns: 1fr; }
+    .agent-grid { grid-template-columns: 1fr 1fr; }
+    .links { grid-template-columns: 1fr 1fr; }
+    .pr-branch { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1><span>●</span> Mission Control</h1>
+  <div class="updated" id="updated-time">Last updated: 2026-03-22 09:51 PT</div>
+</header>
+
+<div class="grid">
+
+  <!-- Agent Status -->
+  <div class="card">
+    <h2><span class="dot green"></span> Agent Status</h2>
+    <div class="agent-grid">
+      <div class="agent-item">
+        <label>Name</label>
+        <value>Clawdia</value>
+      </div>
+      <div class="agent-item">
+        <label>Channel</label>
+        <value>Discord</value>
+      </div>
+      <div class="agent-item">
+        <label>Model</label>
+        <value style="font-size:12px">claude-sonnet-4-6</value>
+      </div>
+    </div>
+  </div>
+
+  <!-- Active Sessions -->
+  <div class="card">
+    <h2><span class="dot green"></span> Active Sessions</h2>
+    <ul class="session-list">
+      <li class="session-item">
+        <span class="dot green"></span>
+        <div class="session-info">
+          <div class="session-name">#finance</div>
+          <div class="session-meta">discord · main session</div>
+        </div>
+        <span class="session-model">sonnet-4-6</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Scheduled Cron Jobs -->
+  <div class="card full">
+    <h2><span class="dot yellow"></span> Scheduled Jobs</h2>
+    <ul class="cron-list">
+
+      <li class="cron-item">
+        <div class="cron-header">
+          <span class="cron-name">📔 daily-log</span>
+          <span class="cron-schedule">11:30 PM PT daily</span>
+          <span class="badge green">enabled</span>
+        </div>
+        <div class="cron-desc">Consolidates all OpenClaw + Claude Code activity into memory/YYYY-MM-DD.md</div>
+        <div class="cron-next">▶ Next: today 11:30 PM PT</div>
+        <div class="cron-last">✓ Last ran: 2026-03-21 at 11:30 PM PT — ok (125s)</div>
+      </li>
+
+      <li class="cron-item">
+        <div class="cron-header">
+          <span class="cron-name">💰 SPY buy reminder</span>
+          <span class="cron-schedule">one-shot</span>
+          <span class="badge yellow">pending</span>
+        </div>
+        <div class="cron-desc">Remind Lloyd to buy SPY after VOO/QQQ/STUB sells execute at market open</div>
+        <div class="cron-next">▶ Fires: Mon Mar 23 at 9:15 AM PT</div>
+      </li>
+
+    </ul>
+  </div>
+
+  <!-- Active Sub-Agents -->
+  <div class="card full">
+    <h2><span class="dot gray"></span> Active Sub-Agents</h2>
+    <ul class="agent-run-list">
+      <li><div class="empty">No sub-agents currently running</div></li>
+    </ul>
+  </div>
+
+  <!-- Active PRs -->
+  <div class="card full">
+    <h2>Active PRs</h2>
+    <ul class="pr-list">
+      <li>
+        <span class="pr-number">#344</span>
+        <span class="pr-title">fix: restore judge submit button visibility on mobile</span>
+        <span class="pr-branch">fix/judge-submit-button-mobile</span>
+        <span class="pr-date">Mar 21</span>
+      </li>
+      <li>
+        <span class="pr-number">#329</span>
+        <span class="pr-title">Fix/ws double ack and connection</span>
+        <span class="pr-branch">fix/ws-double-ack-and-connection</span>
+        <span class="pr-date">Mar 21</span>
+      </li>
+      <li>
+        <span class="pr-number">#312</span>
+        <span class="pr-title">Create plan to fix battles page</span>
+        <span class="pr-branch">fix/battles-page-api-requests</span>
+        <span class="pr-date">Mar 7</span>
+      </li>
+      <li>
+        <span class="pr-number">#282</span>
+        <span class="pr-title">Revert "Feature/about page 2"</span>
+        <span class="pr-branch">revert-281-feature/about-page-2</span>
+        <span class="pr-date">Nov 23</span>
+      </li>
+      <li>
+        <span class="pr-number">#277</span>
+        <span class="pr-title">feat: add containerization for the backend api</span>
+        <span class="pr-branch">arigan/containers/phase1</span>
+        <span class="pr-date">Nov 23</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Today's Memory -->
+  <div class="card full">
+    <h2>Today's Memory — 2026-03-22</h2>
+    <div class="memory-content">## [09:33 PT | Clawdia]
+- Lloyd shared Robinhood portfolio screenshot in #finance Discord
+- Portfolio ~$57k: SPY (71%), NVDA (17%), SPHD, VOO, VXUS, BND, IWM, QQQ, GOOG, STUB
+- Advised: sell VOO + QQQ (redundant with SPY), optionally trim NVDA
+- Lloyd executed sells: VOO (2.86 shares), QQQ (0.65 shares), STUB (17 shares)
+- Orders queued for Mon market open (~$2,200 proceeds)
+- Set cron reminder: Mon Mar 23 9:15 AM PT → buy SPY with proceeds
+- Lloyd asked about Mission Control dashboard → found mission-control.html in workspace
+- Deployed to GitHub Pages with live cron + sessions sections</div>
+  </div>
+
+  <!-- Quick Links -->
+  <div class="card full">
+    <h2>Quick Links</h2>
+    <div class="links">
+      <a href="https://github.com/lglucin/artgg" target="_blank">
+        <span class="link-label">GitHub</span>
+        artgg repo
+      </a>
+      <a href="https://tsdr.uspto.gov/#caseNumber=99324507&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch" target="_blank">
+        <span class="link-label">Trademark Status</span>
+        TSDR #99324507
+      </a>
+      <a href="https://t-api-n-staging-2eed87cd3eee.herokuapp.com/health" target="_blank">
+        <span class="link-label">Staging API</span>
+        Heroku health
+      </a>
+      <a href="https://www.taptaptap.in" target="_blank">
+        <span class="link-label">Production</span>
+        taptaptap.in
+      </a>
+      <a href="https://vercel.com/lglucins-projects" target="_blank">
+        <span class="link-label">Deployments</span>
+        Vercel dashboard
+      </a>
+      <a href="https://teas.uspto.gov" target="_blank">
+        <span class="link-label">Trademark Filing</span>
+        TEAS
+      </a>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
