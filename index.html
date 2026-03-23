@@ -193,7 +193,7 @@
 
 <header>
   <h1><span>●</span> Mission Control</h1>
-  <div class="updated" id="updated-time">Last updated: 2026-03-22 7:08 PM PT</div>
+  <div class="updated" id="updated-time">Last updated: 2026-03-23 2:33 AM PT</div>
 </header>
 
 <div class="grid">
@@ -225,7 +225,7 @@
         <span class="dot green"></span>
         <div class="session-info">
           <div class="session-name">Cron: mission-control-refresh</div>
-          <div class="session-meta">cron · updated just now</div>
+          <div class="session-meta">cron · updated 2:33 AM PT</div>
         </div>
         <span class="session-model">sonnet-4-6</span>
       </li>
@@ -234,29 +234,29 @@
 
   <!-- Scheduled Cron Jobs -->
   <div class="card full">
-    <h2><span class="dot yellow"></span> Scheduled Jobs (3)</h2>
+    <h2><span class="dot yellow"></span> Scheduled Jobs (4)</h2>
     <ul class="cron-list">
 
       <li class="cron-item">
         <div class="cron-header">
           <span class="cron-name">📊 mission-control-refresh</span>
           <span class="cron-schedule">*/30 * * * *</span>
-          <span class="badge red">8 errors · timeout</span>
+          <span class="badge red">15 errors · timeout</span>
         </div>
         <div class="cron-desc">Regenerates and redeploys this Mission Control dashboard every 30 minutes</div>
-        <div class="cron-next">▶ Running now (next: 7:28 PM PT)</div>
-        <div class="cron-last">⚠ Last ran: today ~6:06 PM PT — timeout (120s) · 8 consecutive errors</div>
+        <div class="cron-next">▶ Running now (next: 3:00 AM PT)</div>
+        <div class="cron-last">⚠ Last ran: today ~2:31 AM PT — timeout (120s) · 15 consecutive errors</div>
       </li>
 
       <li class="cron-item">
         <div class="cron-header">
           <span class="cron-name">📔 daily-log</span>
           <span class="cron-schedule">30 23 * * * (11:30 PM PT)</span>
-          <span class="badge green">enabled</span>
+          <span class="badge green">ok</span>
         </div>
         <div class="cron-desc">Consolidates all OpenClaw + Claude Code activity into memory/YYYY-MM-DD.md</div>
         <div class="cron-next">▶ Next: tonight 11:30 PM PT</div>
-        <div class="cron-last">✓ Last ran: 2026-03-21 at 11:30 PM PT — ok (125s)</div>
+        <div class="cron-last">✓ Last ran: 2026-03-22 at 11:30 PM PT — ok (80s)</div>
       </li>
 
       <li class="cron-item">
@@ -265,8 +265,18 @@
           <span class="cron-schedule">one-shot · 2026-03-23 9:15 AM PT</span>
           <span class="badge yellow">pending · deletes after run</span>
         </div>
-        <div class="cron-desc">Remind Lloyd to buy SPY after VOO/QQQ/STUB sells execute at Mon market open (~$2,200 proceeds)</div>
-        <div class="cron-next">▶ Fires: Mon Mar 23 at 9:15 AM PT</div>
+        <div class="cron-desc">Remind Lloyd to buy SPY after VOO/QQQ/STUB sells execute at market open (~$2,200 proceeds)</div>
+        <div class="cron-next">▶ Fires: today Mon Mar 23 at 9:15 AM PT</div>
+      </li>
+
+      <li class="cron-item">
+        <div class="cron-header">
+          <span class="cron-name">💡 Gary ideas reminder</span>
+          <span class="cron-schedule">one-shot · 2026-03-24 10:00 AM PT</span>
+          <span class="badge yellow">pending · deletes after run</span>
+        </div>
+        <div class="cron-desc">Decide whether to give Gary marketing ideas for TIT Mar 31 event (prize split transparency, flyer captions) or let Gary lead</div>
+        <div class="cron-next">▶ Fires: Tue Mar 24 at 10:00 AM PT</div>
       </li>
 
     </ul>
@@ -282,7 +292,7 @@
 
   <!-- Active PRs -->
   <div class="card full">
-    <h2>Active PRs — lglucin/artgg (23 open, updated 7:08 PM PT)</h2>
+    <h2>Active PRs — lglucin/artgg (23 open, updated 2:33 AM PT)</h2>
     <ul class="pr-list">
       <li>
         <span class="pr-number">#351</span>
@@ -362,18 +372,83 @@
         <span class="pr-branch">jessica/speech-to-text-feedback</span>
         <span class="pr-date">Jul 13</span>
       </li>
+      <li>
+        <span class="pr-number">#195</span>
+        <span class="pr-title">Social Media Community Page/IG Icon Updates</span>
+        <span class="pr-branch">hector/ig-icons</span>
+        <span class="pr-date">Jun 22</span>
+      </li>
+      <li>
+        <span class="pr-number">#185</span>
+        <span class="pr-title">Update README for Database Client not showing on Mac</span>
+        <span class="pr-branch">hector/update-README</span>
+        <span class="pr-date">Jun 2</span>
+      </li>
+      <li>
+        <span class="pr-number">#178</span>
+        <span class="pr-title">Senza hackathon</span>
+        <span class="pr-branch">senza-hackathon</span>
+        <span class="pr-date">May 18</span>
+      </li>
+      <li>
+        <span class="pr-number">#173</span>
+        <span class="pr-title">Pages: Voter and TV-Lobby for mobile and tv view</span>
+        <span class="pr-branch">hector/tv-landing-page</span>
+        <span class="pr-date">May 17</span>
+      </li>
+      <li>
+        <span class="pr-number">#169</span>
+        <span class="pr-title">Create Lobby page for TV Flow</span>
+        <span class="pr-branch">austin/tv-flow-lobby-page</span>
+        <span class="pr-date">May 16</span>
+      </li>
+      <li>
+        <span class="pr-number">#163</span>
+        <span class="pr-title">Mobile View for Admin Scores</span>
+        <span class="pr-branch">hector/mobile-admin-scores</span>
+        <span class="pr-date">Apr 18</span>
+      </li>
+      <li>
+        <span class="pr-number">#162</span>
+        <span class="pr-title">Mobile view for admin edit scores timer</span>
+        <span class="pr-branch">hector/mobile-admin-edit-scores-timer</span>
+        <span class="pr-date">Apr 18</span>
+      </li>
+      <li>
+        <span class="pr-number">#161</span>
+        <span class="pr-title">Mobile view: Admin Round Control</span>
+        <span class="pr-branch">hector/mobile-admin-round-control</span>
+        <span class="pr-date">Apr 17</span>
+      </li>
+      <li>
+        <span class="pr-number">#160</span>
+        <span class="pr-title">Mobile View: Admin Upload Page</span>
+        <span class="pr-branch">hector/frontend-adminlobby-mobile</span>
+        <span class="pr-date">Apr 17</span>
+      </li>
+      <li>
+        <span class="pr-number">#159</span>
+        <span class="pr-title">Add Download Scores Button to Admin Scores</span>
+        <span class="pr-branch">austin/add-download-scores-button-admin-scores</span>
+        <span class="pr-date">Mar 28</span>
+      </li>
     </ul>
   </div>
 
   <!-- Today's Memory -->
   <div class="card full">
-    <h2>Today's Memory — 2026-03-22 (updated 7:08 PM PT)</h2>
-    <div class="memory-content">## Summary
+    <h2>Today's Memory — 2026-03-23 (updated 2:33 AM PT)</h2>
+    <div class="memory-content">No memory file yet for 2026-03-23 — it's 2:33 AM, day just started.
+
+── Yesterday (2026-03-22) Highlights ──
+
+## Summary
 Finance day + dashboard day. Lloyd rebalanced Robinhood portfolio (selling VOO, QQQ, STUB to buy SPY), set a cron reminder for Mon market open. Mission Control dashboard deployed and auto-refreshing every 30 min.
 
 ## Open Items
-- [ ] SPY buy reminder fires Mon Mar 23 9:15 AM PT (~$2,200 proceeds from VOO/QQQ/STUB sells)
+- [ ] SPY buy reminder fires today Mon Mar 23 9:15 AM PT (~$2,200 proceeds from VOO/QQQ/STUB sells)
 - [ ] 23 open PRs on artgg — #351 (add dancer mid-battle) and #350 (PostHog identify) are newest
+- [ ] Gary ideas reminder: Tue Mar 24 10 AM PT — decide on TIT event marketing involvement
 
 ## [09:33 PT | Clawdia]
 - Lloyd shared Robinhood portfolio screenshot in #finance Discord
@@ -382,42 +457,17 @@ Finance day + dashboard day. Lloyd rebalanced Robinhood portfolio (selling VOO, 
 - Lloyd executed sells: VOO (2.86 shares), QQQ (0.65 shares), STUB (17 shares)
 - Orders queued for Mon market open (~$2,200 proceeds)
 - Set cron reminder: Mon Mar 23 9:15 AM PT → buy SPY with proceeds
-- Lloyd asked about Mission Control dashboard → found mission-control.html in workspace
-- Deployed to GitHub Pages with live cron + sessions sections
-
-## [12:30 PT | Clawdia]
-- Mission Control dashboard auto-refresh cron running every 30 min — ok, 0 consecutive errors
-- Previous run: 12:00 PM PT, 83s, ok
-- 3 active cron jobs: mission-control-refresh (ok), daily-log (ok), SPY buy reminder (pending Mon 9:15 AM)
-- Sessions: 1 active (this cron session, claude-sonnet-4-6)
-- Sub-agents: none active or recent
-- 21 open PRs on lglucin/artgg — top: #344 (mobile judge submit fix, Mar 21), #329 (ws double ack fix, Mar 20)
 
 ## [15:42 PT | Claude Code]
-- Added posthog.identify() call after successful login in LoginContent.tsx (sends dancer ID, email, name, nickname)
+- Added posthog.identify() call after successful login in LoginContent.tsx
 - Added posthog.reset() on logout in Header.tsx
-- Wired up previously non-functional logout button (clears localStorage, redirects to /login)
+- Wired up previously non-functional logout button
 - Branch: feature/posthog-identify, PR targeting staging
-
-## [$(date +%H:%M) PT | Claude Code]
-- Added refresh button (faArrowsRotate) to Versus, Judging, and Lobby pages via Header's new `onRefresh` prop
-- Button appears in header's right grid area; on Judging it only shows when timer is inactive
-- Committed on feature/posthog-identify branch
 
 ## [14:45 PT | Claude Code]
 - Committed feat: "Add Dancer" mid-battle feature to admin-round-control
 - Three-dot menu in top-right opens modal with search + create dancer flow
-- Supports prelim (redistribute-matches), 7TS (append to queue), blocks tournament mode
-- New files: AddDancerMidBattleModal.tsx, AddDancerMidBattle.module.css
-- Branch: feature/add-dancer-mid-battle off staging
-
-## [-- PT | Claude Code]
-- Created `feature/posthog-event-tracking` branch off staging
-- Added `app/analytics/events.ts` — shared typed PostHog event wrappers (battle_registered, lobby_ready_confirmed, score_submitted, audience_vote_cast, round_completed, page_view)
-- `app/lobby/LobbyContent.tsx` — posthog.identify after verifyAuth, setPersonProperties for userType/battleId, trackBattleRegistered + trackLobbyReady on lobby load
-- `app/judging/JudgingContent.tsx` — trackScoreSubmitted after score submission, trackAudienceVoteCast after vote submission
-- `app/login/LoginContent.tsx` — posthog.reset() on login (clears identity before new login)
-- All type-checked clean, no push or PR created</div>
+- Branch: feature/add-dancer-mid-battle off staging</div>
   </div>
 
   <!-- Quick Links -->
