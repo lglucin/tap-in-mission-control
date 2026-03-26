@@ -193,7 +193,7 @@
 
 <header>
   <h1><span>●</span> Mission Control</h1>
-  <div class="updated" id="updated-time">Last updated: 2026-03-26 2:30 AM PT</div>
+  <div class="updated" id="updated-time">Last updated: 2026-03-26 3:30 AM PT</div>
 </header>
 
 <div class="grid">
@@ -225,7 +225,7 @@
         <span class="dot yellow"></span>
         <div class="session-info">
           <div class="session-name">Cron: mission-control-refresh</div>
-          <div class="session-meta">cron · updated 2:30 AM PT</div>
+          <div class="session-meta">cron · updated 3:30 AM PT</div>
         </div>
         <span class="session-model">sonnet-4-6</span>
       </li>
@@ -234,7 +234,7 @@
 
   <!-- Scheduled Cron Jobs -->
   <div class="card full">
-    <h2><span class="dot yellow"></span> Scheduled Jobs (3)</h2>
+    <h2><span class="dot green"></span> Scheduled Jobs (3)</h2>
     <ul class="cron-list">
 
       <li class="cron-item">
@@ -244,8 +244,8 @@
           <span class="badge red">error</span>
         </div>
         <div class="cron-desc">Regenerates and redeploys this Mission Control dashboard every 30 minutes</div>
-        <div class="cron-next">▶ Running now (2:30 AM PT)</div>
-        <div class="cron-last">⚠ Last ran: ~2:00 AM PT — error (timeout, 120s) · 1 consecutive error</div>
+        <div class="cron-next">▶ Next: 2026-03-26 at 4:00 AM PT</div>
+        <div class="cron-last">⚠ Last ran: 2026-03-26 at 3:00 AM PT — error: timeout (120s)</div>
       </li>
 
       <li class="cron-item">
@@ -270,6 +270,7 @@
         <div class="cron-last">✓ Last ran: 2026-03-25 at 11:35 PM PT — ok (18s)</div>
       </li>
 
+
     </ul>
   </div>
 
@@ -283,7 +284,7 @@
 
   <!-- Active PRs -->
   <div class="card full">
-    <h2>Active PRs — lglucin/artgg (23 open, updated 2:30 AM PT)</h2>
+    <h2>Active PRs — lglucin/artgg (23 open, updated 3:30 AM PT)</h2>
     <ul class="pr-list">
       <li>
         <span class="pr-number">#354</span>
@@ -435,11 +436,12 @@ Memory is written by the daily-log cron at 11:30 PM PT.
 ## Yesterday (2026-03-25) Summary
 - Opened PR #354: feat: judging page tag chips (TAP-121)
 - Opened PR #353: feat: tournament bracket size selector with bye support
-- mission-control-refresh cron running clean — daily-log + daily-brief-discord both ran ok at 11:30/11:35 PM PT
+- daily-log + daily-brief-discord both ran ok at 11:30/11:35 PM PT
 
-## Cron Status Note (2:30 AM PT)
-- mission-control-refresh last run (2:00 AM) timed out at 120s — 1 consecutive error
-- This run (2:30 AM) currently in progress
+## Cron Status Note (3:30 AM PT)
+- ⚠ mission-control-refresh: last run 3:00 AM PT — error: timeout (120s, 1 consecutive error)
+- daily-log + daily-brief-discord: ok
+- Next mission-control-refresh run: 4:00 AM PT
 
 ## Open Items (carried forward)
 - [ ] Review + merge open PRs — #354 (judging tag chips), #353 (bracket size), #351 (add dancer mid-battle)
