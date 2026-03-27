@@ -193,7 +193,7 @@
 
 <header>
   <h1><span>●</span> Mission Control</h1>
-  <div class="updated" id="updated-time">Last updated: 2026-03-27 10:00 AM PT</div>
+  <div class="updated" id="updated-time">Last updated: 2026-03-27 1:32 PM PT</div>
 </header>
 
 <div class="grid">
@@ -225,7 +225,7 @@
         <span class="dot yellow"></span>
         <div class="session-info">
           <div class="session-name">Cron: mission-control-refresh</div>
-          <div class="session-meta">cron · updated 10:00 AM PT</div>
+          <div class="session-meta">cron · updated 1:32 PM PT</div>
         </div>
         <span class="session-model">sonnet-4-6</span>
       </li>
@@ -241,11 +241,11 @@
         <div class="cron-header">
           <span class="cron-name">📊 mission-control-refresh</span>
           <span class="cron-schedule">*/30 * * * *</span>
-          <span class="badge green">ok</span>
+          <span class="badge red">error ×5</span>
         </div>
         <div class="cron-desc">Regenerates and redeploys this Mission Control dashboard every 30 minutes</div>
-        <div class="cron-next">▶ Next: 2026-03-27 at 10:30 AM PT</div>
-        <div class="cron-last">✓ Last ran: 2026-03-27 at 9:30 AM PT — ok (61s)</div>
+        <div class="cron-next">▶ Next: 2026-03-27 at 2:00 PM PT</div>
+        <div class="cron-last">⚠ Last ran: 2026-03-27 at 1:30 PM PT — timed out (120s) · 5 consecutive errors</div>
       </li>
 
       <li class="cron-item">
@@ -283,12 +283,12 @@
 
   <!-- Active PRs -->
   <div class="card full">
-    <h2>Active PRs — lglucin/artgg (25 open, updated 10:00 AM PT)</h2>
+    <h2>Active PRs — lglucin/artgg (25 open, updated 1:32 PM PT)</h2>
     <ul class="pr-list">
       <li>
-        <span class="pr-number">#361</span>
-        <span class="pr-title">chore: add critical rule — always branch from staging, never main</span>
-        <span class="pr-branch">chore/branch-from-staging-rule</span>
+        <span class="pr-number">#362</span>
+        <span class="pr-title">Release: staging → main (tag chips + branch rule)</span>
+        <span class="pr-branch">staging</span>
         <span class="pr-date">Mar 27</span>
       </li>
       <li>
@@ -301,12 +301,6 @@
         <span class="pr-number">#359</span>
         <span class="pr-title">feat: tournament bracket size selector with bye support</span>
         <span class="pr-branch">feature/tournament-bracket-size-clean</span>
-        <span class="pr-date">Mar 27</span>
-      </li>
-      <li>
-        <span class="pr-number">#358</span>
-        <span class="pr-title">feat: judging page tag chips (TAP-121)</span>
-        <span class="pr-branch">feature/judging-tag-chips-clean</span>
         <span class="pr-date">Mar 27</span>
       </li>
       <li>
@@ -440,7 +434,7 @@
 
   <!-- Today's Memory -->
   <div class="card full">
-    <h2>Today&#39;s Memory — 2026-03-27 (10:00 AM PT)</h2>
+    <h2>Today&#39;s Memory — 2026-03-27 (1:32 PM PT)</h2>
     <div class="memory-content">## [00:30 PT | Claude Code]
 - Fixed tag chips not showing on admin preview or judging page — tags were fetched from API but dropped in fetchCategoriesForBattle.ts (not included in return object)
 - Chip visibility rules: 1 star = constructive only, 5 star = positive only, 2-4 = show all
@@ -451,7 +445,27 @@
 - Recreated PRs #353, #354, #355 as clean branches (#358, #359, #360) — originals had Hector's unrelated hotfix commits from main
 - Added CLAUDE.md rule: always branch from staging, never main
 - Merged tap-in-db PR #59 (drop BattleCategoryTag table) to staging and main
-- GitHub Action migration finally works — deployed latest code to tap-in-db Heroku app so it uses DATABASE_URL</div>
+- GitHub Action migration finally works — deployed latest code to tap-in-db Heroku app so it uses DATABASE_URL
+
+## [21:45 PT | Claude Code]
+- Rewrote add-dancer-mid-battle feature in worktree on PR #351
+- Deleted AddDancerMidBattleModal.tsx (492 lines) + CSS (184 lines)
+- Reused existing AddDancerModal, added handleAddDancer handler in AdminRoundControlContent
+- Tournament mode guard, ReusableModal for success/error feedback with match shuffle info
+- Net -507 lines
+
+## [02:00 PT | Claude Code]
+- Shared match distribution: extracted `createPrelimsMatches` from create-battle.ts into `utils/matchDistribution.ts` (`createMatchesWithAlgorithm`)
+- Added missing 1v1 odd-count special case (3-way last match instead of solo) to shared utility
+- create-battle.ts now uses the shared function — single source of truth
+- Pass `prelim_match_size` from battle object in redistribute-matches call
+- Merged tag chips PR #358 to staging, staging deploy succeeded
+- Created staging → main PR #362 for Sunny to test
+
+## [03:00 PT | Claude Code]
+- Added WebSocket ROUND_MAP_UPDATE broadcast to redistribute-matches endpoint — judges auto-update when matches change
+- Force refetchQueries for match caches in admin round control after adding dancer
+- Created score migration plan doc (SCORE_MIGRATION_ON_REDISTRIBUTE.md) for handling in-progress scores when matches redistribute mid-round</div>
   </div>
 
   <!-- Quick Links -->
