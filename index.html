@@ -193,7 +193,7 @@
 
 <header>
   <h1><span>●</span> Mission Control</h1>
-  <div class="updated" id="updated-time">Last updated: 2026-03-28 12:00 PM PT</div>
+  <div class="updated" id="updated-time">Last updated: 2026-03-28 1:00 PM PT</div>
 </header>
 
 <div class="grid">
@@ -225,7 +225,7 @@
         <span class="dot yellow"></span>
         <div class="session-info">
           <div class="session-name">Cron: mission-control-refresh</div>
-          <div class="session-meta">cron · updated 12:00 PM PT</div>
+          <div class="session-meta">cron · updated 1:00 PM PT</div>
         </div>
         <span class="session-model">sonnet-4-6</span>
       </li>
@@ -241,11 +241,11 @@
         <div class="cron-header">
           <span class="cron-name">📊 mission-control-refresh</span>
           <span class="cron-schedule">*/30 * * * *</span>
-          <span class="badge green">ok</span>
+          <span class="badge red">error</span>
         </div>
         <div class="cron-desc">Regenerates and redeploys this Mission Control dashboard every 30 minutes</div>
-        <div class="cron-next">▶ Next: 2026-03-28 at 12:30 PM PT</div>
-        <div class="cron-last">✓ Last ran: 2026-03-28 at 12:00 PM PT — ok (80s) · 0 consecutive errors</div>
+        <div class="cron-next">▶ Next: 2026-03-28 at 1:30 PM PT</div>
+        <div class="cron-last">⚠ Last ran: 2026-03-28 at 12:30 PM PT — error (timeout, 268s) · 1 consecutive error</div>
       </li>
 
       <li class="cron-item">
@@ -256,7 +256,7 @@
         </div>
         <div class="cron-desc">Consolidates all OpenClaw + Claude Code activity into memory/YYYY-MM-DD.md</div>
         <div class="cron-next">▶ Next: 2026-03-28 at 11:30 PM PT</div>
-        <div class="cron-last">✓ Last ran: 2026-03-27 at 11:30 PM PT — ok (32s) · 0 consecutive errors</div>
+        <div class="cron-last">✓ Last ran: 2026-03-27 at 11:30 PM PT — ok (33s) · 0 consecutive errors</div>
       </li>
 
       <li class="cron-item">
@@ -294,8 +294,14 @@
 
   <!-- Active PRs -->
   <div class="card full">
-    <h2>Active PRs — lglucin/artgg (24 open, updated 12:00 PM PT)</h2>
+    <h2>Active PRs — lglucin/artgg (25 open, updated 1:00 PM PT)</h2>
     <ul class="pr-list">
+      <li>
+        <span class="pr-number">#363</span>
+        <span class="pr-title">feat: create account flow — /create-account page + login link (TAP-28)</span>
+        <span class="pr-branch">feature/create-account-flow</span>
+        <span class="pr-date">Mar 28</span>
+      </li>
       <li>
         <span class="pr-number">#362</span>
         <span class="pr-title">Release: staging → main (tag chips + branch rule)</span>
@@ -445,8 +451,22 @@
 
   <!-- Today's Memory -->
   <div class="card full">
-    <h2>Today&#39;s Memory — 2026-03-28 (12:00 PM PT)</h2>
-    <div class="memory-content">No memory file yet for today (memory/2026-03-28.md). Daily log cron runs at 11:30 PM PT.</div>
+    <h2>Today&#39;s Memory — 2026-03-28 (1:00 PM PT)</h2>
+    <div class="memory-content"># 2026-03-28
+
+## [01:30 PT | Claude Code]
+- Rewrote match redistribution to reuse existing match IDs instead of delete+recreate
+- New `computeDancerGroupings` pure function — single source of truth for all 4 distribution cases (even, 1v1 odd→3-way, expand last groups, smaller remainder)
+- Scored and voted matches are never touched (checks score, match_vote, tournament_match tables)
+- localStorage scores keyed by match ID survive redistribution
+- Set up Linear MCP server — connected to Tap In team, verified TAP-22 ticket
+- TAP-22 requirement: "Must not reshuffle or delete previous matches" — now satisfied
+
+## [02:55 PT | Claude Code]
+- Fixed new dancer showing no stars on judging page — scores array extended when dancerIds grows mid-round
+- Fixed computeDancerGroupings returning 0 groups when fewer dancers than matchSize (dancer was lost)
+- Added guard: 0 dancers → empty array, fewer than matchSize → single group with all dancers
+- Fixed slot column in match_dancer INSERT (was missing NOT NULL column)</div>
   </div>
 
   <!-- Quick Links -->
