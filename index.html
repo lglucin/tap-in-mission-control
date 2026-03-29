@@ -193,7 +193,7 @@
 
 <header>
   <h1><span>●</span> Mission Control</h1>
-  <div class="updated" id="updated-time">Last updated: 2026-03-28 7:00 PM PT</div>
+  <div class="updated" id="updated-time">Last updated: 2026-03-28 9:00 PM PT</div>
 </header>
 
 <div class="grid">
@@ -225,7 +225,7 @@
         <span class="dot yellow"></span>
         <div class="session-info">
           <div class="session-name">Cron: mission-control-refresh</div>
-          <div class="session-meta">cron · updated 7:00 PM PT</div>
+          <div class="session-meta">cron · updated 9:00 PM PT</div>
         </div>
         <span class="session-model">sonnet-4-6</span>
       </li>
@@ -241,11 +241,11 @@
         <div class="cron-header">
           <span class="cron-name">📊 mission-control-refresh</span>
           <span class="cron-schedule">*/30 * * * *</span>
-          <span class="badge green">ok</span>
+          <span class="badge red">error</span>
         </div>
         <div class="cron-desc">Regenerates and redeploys this Mission Control dashboard every 30 minutes</div>
-        <div class="cron-next">▶ Next: 2026-03-28 at 7:30 PM PT</div>
-        <div class="cron-last">✓ Last ran: 2026-03-28 at 6:30 PM PT — ok (105s) · 0 consecutive errors</div>
+        <div class="cron-next">▶ Next: 2026-03-28 at 9:30 PM PT</div>
+        <div class="cron-last">⚠ Last ran: 2026-03-28 at 9:00 PM PT — error (timeout, 122s) · 3 consecutive errors</div>
       </li>
 
       <li class="cron-item">
@@ -294,7 +294,7 @@
 
   <!-- Active PRs -->
   <div class="card full">
-    <h2>Active PRs — lglucin/artgg (23 open, updated 7:00 PM PT)</h2>
+    <h2>Active PRs — lglucin/artgg (23 open, updated 9:00 PM PT)</h2>
     <ul class="pr-list">
       <li>
         <span class="pr-number">#362</span>
@@ -439,7 +439,7 @@
 
   <!-- Today's Memory -->
   <div class="card full">
-    <h2>Today&#39;s Memory — 2026-03-28 (7:00 PM PT)</h2>
+    <h2>Today&#39;s Memory — 2026-03-28 (9:00 PM PT)</h2>
     <div class="memory-content"># 2026-03-28
 
 ## [01:30 PT | Claude Code]
@@ -467,7 +467,20 @@
 - Connected Linear MCP server — TAP-22 ticket linked with PR #351 comment
 
 ## [04:00 PT | Claude Code]
-- PR #363 (create-account flow) rules review fixes: strip PII from POST /api/dancer response, remove inline style, bump button to 44px touch target, fix sub-16px font sizes, document auth model for rate limiting</div>
+- PR #363 (create-account flow) rules review fixes: strip PII from POST /api/dancer response, remove inline style, bump button to 44px touch target, fix sub-16px font sizes, document auth model for rate limiting
+
+## [04:30 PT | Claude Code]
+- Tournament bracket size PR (#359): fixed setState-during-render (moved to useEffect), removed dead bracketOptions state and unused BracketOption import
+- Cleaned up merged local branches, updated staging → main PR #362 description with create-account commits
+
+## [05:00 PT | Claude Code]
+- Fixed React hooks order violation crashing admin-scores page — useEffect was placed after an early return, causing "Rendered more hooks than during the previous render" error. Moved useEffect above the early return.
+
+## [05:15 PT | Claude Code]
+- Removed useEffect for bracket size entirely — was causing hydration issues and hooks-after-early-return violations. Now derives default bracket size inline from computed options, no hooks needed.
+
+## [05:30 PT | Claude Code]
+- Root cause of admin-scores redirect: useEffect checked token before localStorage hydrated (token was false on first render). Fixed by checking `isHydrated` flag before redirecting.</div>
   </div>
 
   <!-- Quick Links -->
