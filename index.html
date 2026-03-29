@@ -193,7 +193,7 @@
 
 <header>
   <h1><span>●</span> Mission Control</h1>
-  <div class="updated" id="updated-time">Last updated: 2026-03-28 1:00 PM PT</div>
+  <div class="updated" id="updated-time">Last updated: 2026-03-28 5:36 PM PT</div>
 </header>
 
 <div class="grid">
@@ -225,7 +225,7 @@
         <span class="dot yellow"></span>
         <div class="session-info">
           <div class="session-name">Cron: mission-control-refresh</div>
-          <div class="session-meta">cron · updated 1:00 PM PT</div>
+          <div class="session-meta">cron · updated 5:36 PM PT</div>
         </div>
         <span class="session-model">sonnet-4-6</span>
       </li>
@@ -244,8 +244,8 @@
           <span class="badge red">error</span>
         </div>
         <div class="cron-desc">Regenerates and redeploys this Mission Control dashboard every 30 minutes</div>
-        <div class="cron-next">▶ Next: 2026-03-28 at 1:30 PM PT</div>
-        <div class="cron-last">⚠ Last ran: 2026-03-28 at 12:30 PM PT — error (timeout, 268s) · 1 consecutive error</div>
+        <div class="cron-next">▶ Next: 2026-03-28 at 6:02 PM PT</div>
+        <div class="cron-last">⚠ Last ran: 2026-03-28 at 5:34 PM PT — error (timeout, 120s) · 7 consecutive errors</div>
       </li>
 
       <li class="cron-item">
@@ -294,17 +294,11 @@
 
   <!-- Active PRs -->
   <div class="card full">
-    <h2>Active PRs — lglucin/artgg (25 open, updated 1:00 PM PT)</h2>
+    <h2>Active PRs — lglucin/artgg (23 open, updated 5:36 PM PT)</h2>
     <ul class="pr-list">
       <li>
-        <span class="pr-number">#363</span>
-        <span class="pr-title">feat: create account flow — /create-account page + login link (TAP-28)</span>
-        <span class="pr-branch">feature/create-account-flow</span>
-        <span class="pr-date">Mar 28</span>
-      </li>
-      <li>
         <span class="pr-number">#362</span>
-        <span class="pr-title">Release: staging → main (tag chips + branch rule)</span>
+        <span class="pr-title">Release: staging → main (create-account, add-dancer, tag chips, login fixes, PostHog)</span>
         <span class="pr-branch">staging</span>
         <span class="pr-date">Mar 27</span>
       </li>
@@ -319,12 +313,6 @@
         <span class="pr-title">feat: tournament bracket size selector with bye support</span>
         <span class="pr-branch">feature/tournament-bracket-size-clean</span>
         <span class="pr-date">Mar 27</span>
-      </li>
-      <li>
-        <span class="pr-number">#351</span>
-        <span class="pr-title">feat: Add Dancer mid-battle from admin round control</span>
-        <span class="pr-branch">feature/add-dancer-mid-battle</span>
-        <span class="pr-date">Mar 22</span>
       </li>
       <li>
         <span class="pr-number">#329</span>
@@ -451,7 +439,7 @@
 
   <!-- Today's Memory -->
   <div class="card full">
-    <h2>Today&#39;s Memory — 2026-03-28 (1:00 PM PT)</h2>
+    <h2>Today&#39;s Memory — 2026-03-28 (5:36 PM PT)</h2>
     <div class="memory-content"># 2026-03-28
 
 ## [01:30 PT | Claude Code]
@@ -466,7 +454,20 @@
 - Fixed new dancer showing no stars on judging page — scores array extended when dancerIds grows mid-round
 - Fixed computeDancerGroupings returning 0 groups when fewer dancers than matchSize (dancer was lost)
 - Added guard: 0 dancers → empty array, fewer than matchSize → single group with all dancers
-- Fixed slot column in match_dancer INSERT (was missing NOT NULL column)</div>
+- Fixed slot column in match_dancer INSERT (was missing NOT NULL column)
+
+## [03:15 PT | Claude Code]
+- Cleaned up debug logs in matchDistribution.ts — reduced from 12 to 3 (start, plan, result)
+- Removed verbose debug logs from JudgingContent.tsx WebSocket handler
+- Deleted plan docs (ADD_DANCER_MID_BATTLE_PLAN.md, SCORE_MIGRATION_ON_REDISTRIBUTE.md) before merge
+- Reverted accidental commit of junk .md files at repo root
+
+## [03:30 PT | Claude Code]
+- Rules review fixes: transaction wrapping (BEGIN/COMMIT/ROLLBACK) for redistributeMatches, typed DancerRef interface (no more any[]), generic error message (no schema leak to client), removed dead getAllBattlersInBattle function
+- Connected Linear MCP server — TAP-22 ticket linked with PR #351 comment
+
+## [04:00 PT | Claude Code]
+- PR #363 (create-account flow) rules review fixes: strip PII from POST /api/dancer response, remove inline style, bump button to 44px touch target, fix sub-16px font sizes, document auth model for rate limiting</div>
   </div>
 
   <!-- Quick Links -->
