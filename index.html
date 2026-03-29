@@ -193,7 +193,7 @@
 
 <header>
   <h1><span>●</span> Mission Control</h1>
-  <div class="updated" id="updated-time">Last updated: 2026-03-28 9:30 PM PT</div>
+  <div class="updated" id="updated-time">Last updated: 2026-03-28 10:32 PM PT</div>
 </header>
 
 <div class="grid">
@@ -225,7 +225,7 @@
         <span class="dot yellow"></span>
         <div class="session-info">
           <div class="session-name">Cron: mission-control-refresh</div>
-          <div class="session-meta">cron · updated 9:30 PM PT</div>
+          <div class="session-meta">cron · updated 10:32 PM PT</div>
         </div>
         <span class="session-model">sonnet-4-6</span>
       </li>
@@ -244,8 +244,8 @@
           <span class="badge red">error</span>
         </div>
         <div class="cron-desc">Regenerates and redeploys this Mission Control dashboard every 30 minutes</div>
-        <div class="cron-next">▶ Next: 2026-03-28 at 10:00 PM PT</div>
-        <div class="cron-last">⚠ Last ran: 2026-03-28 at 9:30 PM PT — error (timeout, 120s) · 4 consecutive errors</div>
+        <div class="cron-next">▶ Next: 2026-03-28 at 11:00 PM PT</div>
+        <div class="cron-last">⚠ Last ran: 2026-03-28 at 10:30 PM PT — error (timeout, 120s) · 5 consecutive errors</div>
       </li>
 
       <li class="cron-item">
@@ -294,7 +294,7 @@
 
   <!-- Active PRs -->
   <div class="card full">
-    <h2>Active PRs — lglucin/artgg (23 open, updated 9:30 PM PT)</h2>
+    <h2>Active PRs — lglucin/artgg (23 open, updated 10:32 PM PT)</h2>
     <ul class="pr-list">
       <li>
         <span class="pr-number">#362</span>
@@ -439,7 +439,7 @@
 
   <!-- Today's Memory -->
   <div class="card full">
-    <h2>Today&#39;s Memory — 2026-03-28 (9:30 PM PT)</h2>
+    <h2>Today&#39;s Memory — 2026-03-28 (10:32 PM PT)</h2>
     <div class="memory-content"># 2026-03-28
 
 ## [01:30 PT | Claude Code]
@@ -493,7 +493,39 @@
 - Fixed seedTournamentBracket crash with non-power-of-2 dancer counts (7 dancers → seeding generated 8 positions → index out of bounds → undefined dancer)
 - Dimmed eliminated dancers in admin-scores table based on bracket selection
 - Fixed grammar: "1 byes" → "1 bye"
-- Moved tournament format dropdown above buttons with better styling</div>
+- Moved tournament format dropdown above buttons with better styling
+
+## [06:45 PT | Claude Code]
+- Fixed bye assignment: top seeds now get byes (not lowest scorers). Added seedTournamentBracketWithByes that places nulls at correct bracket positions using the seeding algorithm.
+
+## [07:15 PT | Claude Code]
+- Moved tournament format selector from admin-scores to admin-tournament-preview page. Admin-scores now just shows scores. Bracket format decision is on the preview page where you see the bracket.
+
+## [07:30 PT | Claude Code]
+- Fixed bye placement — was double-seeding (seededDancers already bracket-shuffled, then seedTournamentBracketWithByes re-seeded). Now uses qualifiedDancers (rank order) as input.
+
+## [07:45 PT | Claude Code]
+- Fixed preview bracket bye placement — TournamentBracket was padding nulls at end, now uses seedTournamentBracketWithByes with qualifiedDancers (rank order) for correct seeded bye positions. Top seed should get bye.
+- Added isHydrated guard to admin-tournament-preview login redirect
+
+## [08:00 PT | Claude Code]
+- Bye winners now visually advance to next round in preview bracket — instead of "TBD", the bye winner's name shows in their next round slot
+
+## [08:15 PT | Claude Code]
+- Fixed bye cascading through all rounds — only first round treats null opponents as byes, later rounds show TBD
+
+## [08:30 PT | Claude Code]
+- Fixed finalize tournament crash: bye code was updating `match.is_complete` which doesn't exist — fixed to update `tournament_match.is_complete` instead
+
+## [08:45 PT | Claude Code]
+- Auto-advance past bye rounds in tournament mode — detects bye match (1 dancer, already complete with winner) and auto-clicks move-on after 500ms delay
+- Fixed is_complete column error on match table (doesn't exist, was on tournament_match)
+
+## [09:00 PT | Claude Code]
+- Fixed bye winner not appearing in next round — createTournamentMatches now inserts bye winner into next round's match_dancer table during tournament creation (third pass after setting next_match_id relationships)
+
+## [09:30 PT | Claude Code]
+- Fixed calculateMatchWinner failing for bye-advanced matches — bye winner was only in match_dancer junction table, not in legacy dancer1_id/dancer2_id columns that calculateMatchWinner reads. Now updates both on tournament creation.</div>
   </div>
 
   <!-- Quick Links -->
