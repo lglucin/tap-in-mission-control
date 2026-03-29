@@ -193,7 +193,7 @@
 
 <header>
   <h1><span>●</span> Mission Control</h1>
-  <div class="updated" id="updated-time">Last updated: 2026-03-28 9:00 PM PT</div>
+  <div class="updated" id="updated-time">Last updated: 2026-03-28 9:30 PM PT</div>
 </header>
 
 <div class="grid">
@@ -225,7 +225,7 @@
         <span class="dot yellow"></span>
         <div class="session-info">
           <div class="session-name">Cron: mission-control-refresh</div>
-          <div class="session-meta">cron · updated 9:00 PM PT</div>
+          <div class="session-meta">cron · updated 9:30 PM PT</div>
         </div>
         <span class="session-model">sonnet-4-6</span>
       </li>
@@ -244,8 +244,8 @@
           <span class="badge red">error</span>
         </div>
         <div class="cron-desc">Regenerates and redeploys this Mission Control dashboard every 30 minutes</div>
-        <div class="cron-next">▶ Next: 2026-03-28 at 9:30 PM PT</div>
-        <div class="cron-last">⚠ Last ran: 2026-03-28 at 9:00 PM PT — error (timeout, 122s) · 3 consecutive errors</div>
+        <div class="cron-next">▶ Next: 2026-03-28 at 10:00 PM PT</div>
+        <div class="cron-last">⚠ Last ran: 2026-03-28 at 9:30 PM PT — error (timeout, 120s) · 4 consecutive errors</div>
       </li>
 
       <li class="cron-item">
@@ -294,7 +294,7 @@
 
   <!-- Active PRs -->
   <div class="card full">
-    <h2>Active PRs — lglucin/artgg (23 open, updated 9:00 PM PT)</h2>
+    <h2>Active PRs — lglucin/artgg (23 open, updated 9:30 PM PT)</h2>
     <ul class="pr-list">
       <li>
         <span class="pr-number">#362</span>
@@ -439,7 +439,7 @@
 
   <!-- Today's Memory -->
   <div class="card full">
-    <h2>Today&#39;s Memory — 2026-03-28 (9:00 PM PT)</h2>
+    <h2>Today&#39;s Memory — 2026-03-28 (9:30 PM PT)</h2>
     <div class="memory-content"># 2026-03-28
 
 ## [01:30 PT | Claude Code]
@@ -480,7 +480,20 @@
 - Removed useEffect for bracket size entirely — was causing hydration issues and hooks-after-early-return violations. Now derives default bracket size inline from computed options, no hooks needed.
 
 ## [05:30 PT | Claude Code]
-- Root cause of admin-scores redirect: useEffect checked token before localStorage hydrated (token was false on first render). Fixed by checking `isHydrated` flag before redirecting.</div>
+- Root cause of admin-scores redirect: useEffect checked token before localStorage hydrated (token was false on first render). Fixed by checking `isHydrated` flag before redirecting.
+- Traced admin-scores redirect root cause: GIF hydration mismatch → error boundary re-mount → localStorage reset → auth redirect with empty token
+- Replaced hooks-before-early-returns lesson with hydration-guard-auth-redirects lesson (more accurate)
+- Fix: check `isHydrated` before auth redirects
+
+## [06:00 PT | Claude Code]
+- Fixed tournament format dropdown: grammar (1 bye not 1 byes), moved above buttons, restyled with red border and full width
+- Still need to fix: bye match nil error on finalize tournament
+
+## [06:30 PT | Claude Code]
+- Fixed seedTournamentBracket crash with non-power-of-2 dancer counts (7 dancers → seeding generated 8 positions → index out of bounds → undefined dancer)
+- Dimmed eliminated dancers in admin-scores table based on bracket selection
+- Fixed grammar: "1 byes" → "1 bye"
+- Moved tournament format dropdown above buttons with better styling</div>
   </div>
 
   <!-- Quick Links -->
