@@ -24,11 +24,7 @@
   header h1 { font-size: 20px; font-weight: 600; letter-spacing: -0.3px; }
   header h1 span { color: #e63946; }
   .updated { font-size: 11px; color: #8b949e; }
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .card {
     background: #161b22;
     border: 1px solid #21262d;
@@ -38,96 +34,9 @@
   }
   .card.full { grid-column: 1 / -1; }
   .card h2 {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    color: #8b949e;
-    margin-bottom: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.8px; color: #8b949e; margin-bottom: 14px;
   }
-  .dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    display: inline-block;
-    flex-shrink: 0;
-  }
-  .dot.green { background: #3fb950; animation: pulse 2s ease-in-out infinite; }
-  .dot.yellow { background: #d29922; animation: pulse 1.5s ease-in-out infinite; }
-  .dot.red { background: #e63946; }
-  .dot.gray { background: #484f58; }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 currentColor; }
-    50% { opacity: 0.6; }
-  }
-
-  /* Agent Status */
-  .agent-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .agent-item label {
-    display: block; font-size: 10px; color: #8b949e;
-    margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.5px;
-  }
-  .agent-item value { display: block; font-size: 14px; font-weight: 500; }
-
-  /* Sessions */
-  .session-list { list-style: none; }
-  .session-item {
-    padding: 10px 0;
-    border-bottom: 1px solid #21262d;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .session-item:last-child { border-bottom: none; }
-  .session-info { flex: 1; min-width: 0; }
-  .session-name { font-size: 13px; font-weight: 500; }
-  .session-meta { font-size: 11px; color: #8b949e; margin-top: 2px; }
-  .session-model {
-    font-size: 10px; color: #8b949e;
-    background: #1c2128; padding: 2px 7px;
-    border-radius: 4px;
-    font-family: 'SF Mono', 'Fira Code', monospace;
-    white-space: nowrap;
-  }
-
-  /* Cron Jobs */
-  .cron-list { list-style: none; }
-  .cron-item {
-    padding: 10px 0;
-    border-bottom: 1px solid #21262d;
-  }
-  .cron-item:last-child { border-bottom: none; }
-  .cron-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 4px;
-  }
-  .cron-name { font-size: 13px; font-weight: 500; }
-  .cron-schedule {
-    font-size: 11px; color: #79c0ff;
-    background: #1c2128; padding: 2px 7px;
-    border-radius: 4px;
-    font-family: 'SF Mono', 'Fira Code', monospace;
-    white-space: nowrap;
-  }
-  .cron-desc { font-size: 11px; color: #8b949e; margin-top: 3px; }
-  .cron-next { font-size: 11px; color: #3fb950; margin-top: 2px; }
-  .cron-last { font-size: 11px; color: #8b949e; margin-top: 2px; }
-  .badge {
-    font-size: 10px; padding: 1px 7px; border-radius: 10px;
-    font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px;
-    flex-shrink: 0;
-  }
-  .badge.green { background: #0d4429; color: #3fb950; border: 1px solid #1a5e38; }
-  .badge.yellow { background: #2d1f00; color: #d29922; border: 1px solid #4a3200; }
-  .badge.red { background: #3d0000; color: #e63946; border: 1px solid #6b0000; }
-  .badge.gray { background: #1c2128; color: #8b949e; border: 1px solid #30363d; }
-
-  /* PRs */
   .pr-list { list-style: none; }
   .pr-list li {
     padding: 9px 0; border-bottom: 1px solid #21262d;
@@ -143,21 +52,14 @@
     font-family: 'SF Mono', 'Fira Code', monospace; white-space: nowrap;
   }
   .pr-date { font-size: 11px; color: #8b949e; white-space: nowrap; }
-
-  /* Memory */
   .memory-content {
     font-size: 12px; line-height: 1.7;
-    max-height: 380px; overflow-y: auto;
+    max-height: 400px; overflow-y: auto;
     white-space: pre-wrap;
     font-family: 'SF Mono', 'Fira Code', monospace;
     color: #c9d1d9;
     scrollbar-width: thin; scrollbar-color: #30363d #161b22;
   }
-  .memory-content::-webkit-scrollbar { width: 5px; }
-  .memory-content::-webkit-scrollbar-track { background: #161b22; }
-  .memory-content::-webkit-scrollbar-thumb { background: #30363d; border-radius: 3px; }
-
-  /* Links */
   .links { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .links a {
     display: block; padding: 10px 14px;
@@ -168,22 +70,12 @@
   }
   .links a:hover { border-color: #e63946; background: #1a1f27; }
   .links a .link-label { font-size: 10px; color: #8b949e; display: block; margin-bottom: 2px; }
-
-  /* Subagents */
-  .agent-run-list { list-style: none; }
-  .agent-run-item {
-    padding: 10px 0; border-bottom: 1px solid #21262d;
-    display: flex; align-items: flex-start; gap: 10px;
-  }
-  .agent-run-item:last-child { border-bottom: none; }
-  .agent-run-info { flex: 1; min-width: 0; }
-  .agent-run-task { font-size: 12px; color: #c9d1d9; margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .empty { font-size: 12px; color: #484f58; font-style: italic; padding: 6px 0; }
-
+  .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .stat-item label { display: block; font-size: 10px; color: #8b949e; margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .stat-item value { display: block; font-size: 20px; font-weight: 600; }
   @media (max-width: 640px) {
     body { padding: 12px; }
     .grid { grid-template-columns: 1fr; }
-    .agent-grid { grid-template-columns: 1fr 1fr; }
     .links { grid-template-columns: 1fr 1fr; }
     .pr-branch { display: none; }
   }
@@ -193,370 +85,236 @@
 
 <header>
   <h1><span>●</span> Mission Control</h1>
-  <div class="updated" id="updated-time">Last updated: 2026-03-29 11:00 AM PT</div>
+  <div class="updated">Last updated: 2026-03-29 07:44 PM PT</div>
 </header>
 
 <div class="grid">
 
-  <!-- Agent Status -->
+  <!-- Stats -->
   <div class="card">
-    <h2><span class="dot green"></span> Agent Status</h2>
-    <div class="agent-grid">
-      <div class="agent-item">
-        <label>Name</label>
-        <value>Clawdia</value>
+    <h2>Tap.In</h2>
+    <div class="stat-grid">
+      <div class="stat-item">
+        <label>Open PRs</label>
+        <value>21</value>
       </div>
-      <div class="agent-item">
-        <label>Channel</label>
-        <value>Discord</value>
+      <div class="stat-item">
+        <label>Repo</label>
+        <value style="font-size:13px">artgg</value>
       </div>
-      <div class="agent-item">
-        <label>Model</label>
-        <value style="font-size:12px">claude-sonnet-4-6</value>
+      <div class="stat-item">
+        <label>Agent</label>
+        <value style="font-size:13px">Clawdia</value>
       </div>
     </div>
   </div>
 
-  <!-- Active Sessions -->
+  <!-- Quick Links -->
   <div class="card">
-    <h2><span class="dot green"></span> Active Sessions (1)</h2>
-    <ul class="session-list">
-      <li class="session-item">
-        <span class="dot yellow"></span>
-        <div class="session-info">
-          <div class="session-name">Cron: mission-control-refresh</div>
-          <div class="session-meta">cron · updated 11:00 AM PT</div>
-        </div>
-        <span class="session-model">sonnet-4-6</span>
-      </li>
-    </ul>
+    <h2>Quick Links</h2>
+    <div class="links">
+      <a href="https://github.com/lglucin/artgg/pulls" target="_blank">
+        <span class="link-label">GitHub</span>artgg PRs
+      </a>
+      <a href="https://www.taptaptap.in" target="_blank">
+        <span class="link-label">Production</span>taptaptap.in
+      </a>
+      <a href="https://vercel.com/lglucins-projects" target="_blank">
+        <span class="link-label">Deployments</span>Vercel
+      </a>
+      <a href="https://t-api-n-staging-2eed87cd3eee.herokuapp.com/health" target="_blank">
+        <span class="link-label">Staging API</span>Heroku health
+      </a>
+    </div>
   </div>
 
-  <!-- Scheduled Cron Jobs -->
+  <!-- PRs -->
   <div class="card full">
-    <h2><span class="dot yellow"></span> Scheduled Jobs (4)</h2>
-    <ul class="cron-list">
-
-      <li class="cron-item">
-        <div class="cron-header">
-          <span class="cron-name">📊 mission-control-refresh</span>
-          <span class="cron-schedule">*/30 * * * *</span>
-          <span class="badge green">ok</span>
-        </div>
-        <div class="cron-desc">Regenerates and redeploys this Mission Control dashboard every 30 minutes</div>
-        <div class="cron-next">▶ Next: 2026-03-29 at 11:30 AM PT</div>
-        <div class="cron-last">✓ Last ran: 2026-03-29 at 11:00 AM PT — ok (85s) · 0 consecutive errors</div>
-      </li>
-
-      <li class="cron-item">
-        <div class="cron-header">
-          <span class="cron-name">📔 daily-log</span>
-          <span class="cron-schedule">30 23 * * * (11:30 PM PT)</span>
-          <span class="badge green">ok</span>
-        </div>
-        <div class="cron-desc">Consolidates all OpenClaw + Claude Code activity into memory/YYYY-MM-DD.md</div>
-        <div class="cron-next">▶ Next: 2026-03-29 at 11:30 PM PT</div>
-        <div class="cron-last">✓ Last ran: 2026-03-28 at 11:30 PM PT — ok (78s) · 0 consecutive errors</div>
-
-      </li>
-
-      <li class="cron-item">
-        <div class="cron-header">
-          <span class="cron-name">📋 daily-brief-discord</span>
-          <span class="cron-schedule">35 23 * * * (11:35 PM PT)</span>
-          <span class="badge green">ok</span>
-        </div>
-        <div class="cron-desc">Posts daily brief summary to #daily-brief Discord channel after nightly log consolidation</div>
-        <div class="cron-next">▶ Next: 2026-03-29 at 11:35 PM PT</div>
-        <div class="cron-last">✓ Last ran: 2026-03-28 at 11:35 PM PT — ok (54s) · 0 consecutive errors</div>
-      </li>
-
-      <li class="cron-item">
-        <div class="cron-header">
-          <span class="cron-name">📈 Weekly PostHog Analytics Review</span>
-          <span class="cron-schedule">0 17 * * 5 (Fri 5:00 PM PT)</span>
-          <span class="badge gray">pending</span>
-        </div>
-        <div class="cron-desc">Friday 5PM reminder to pull last 7 days of Tap.In engagement from PostHog and post to #posthog</div>
-        <div class="cron-next">▶ Next: 2026-04-03 at 5:00 PM PT</div>
-        <div class="cron-last">— Never run</div>
-      </li>
-
-
-
-    </ul>
-  </div>
-
-  <!-- Active Sub-Agents -->
-  <div class="card full">
-    <h2><span class="dot gray"></span> Active Sub-Agents</h2>
-    <ul class="agent-run-list">
-      <li><div class="empty">No sub-agents currently running</div></li>
-    </ul>
-  </div>
-
-  <!-- Active PRs -->
-  <div class="card full">
-    <h2>Active PRs — lglucin/artgg (22 open, updated 11:00 AM PT)</h2>
+    <h2>Open PRs — lglucin/artgg (21 open)</h2>
     <ul class="pr-list">
       <li>
-        <span class="pr-number">#362</span>
-        <span class="pr-title">Release: staging → main (create-account, add-dancer, tag chips, tournament brackets, login fixes, PostHog)</span>
-        <span class="pr-branch">staging</span>
-        <span class="pr-date">Mar 27</span>
-      </li>
-      <li>
-        <span class="pr-number">#360</span>
-        <span class="pr-title">feat: hideScoreResults — suppress star scores on released-score page (TAP-126)</span>
-        <span class="pr-branch">feature/hide-score-results-clean</span>
-        <span class="pr-date">Mar 27</span>
+        <span class="pr-number">#368</span>
+        <span class="pr-title">fix: [TAP-143] 7TS add dancer not appearing on admin round control</span>
+        <span class="pr-branch">fix/TAP-143-7ts-add-dancer</span>
+        <span class="pr-date">2026-03-29</span>
       </li>
       <li>
         <span class="pr-number">#329</span>
         <span class="pr-title">Fix/ws double ack and connection</span>
         <span class="pr-branch">fix/ws-double-ack-and-connection</span>
-        <span class="pr-date">Mar 20</span>
+        <span class="pr-date">2026-03-20</span>
       </li>
       <li>
         <span class="pr-number">#312</span>
         <span class="pr-title">Create plan to fix battles page.</span>
         <span class="pr-branch">fix/battles-page-api-requests</span>
-        <span class="pr-date">Mar 7</span>
+        <span class="pr-date">2026-03-07</span>
       </li>
       <li>
         <span class="pr-number">#282</span>
         <span class="pr-title">Revert "Feature/about page 2"</span>
         <span class="pr-branch">revert-281-feature/about-page-2</span>
-        <span class="pr-date">Nov 18</span>
+        <span class="pr-date">2025-11-18</span>
       </li>
       <li>
         <span class="pr-number">#277</span>
         <span class="pr-title">feat: add containerization for the backend api</span>
         <span class="pr-branch">arigan/containers/phase1</span>
-        <span class="pr-date">Nov 7</span>
+        <span class="pr-date">2025-11-07</span>
       </li>
       <li>
         <span class="pr-number">#236</span>
         <span class="pr-title">[Draft] Add instagram to horizontal dancer card</span>
         <span class="pr-branch">jess/instagram-horz-card</span>
-        <span class="pr-date">Sep 16</span>
+        <span class="pr-date">2025-09-16</span>
       </li>
       <li>
         <span class="pr-number">#232</span>
         <span class="pr-title">feat: Add Database Layer v2 and Match API v2</span>
         <span class="pr-branch">ari/n-dancers-v3</span>
-        <span class="pr-date">Sep 15</span>
+        <span class="pr-date">2025-09-15</span>
       </li>
       <li>
         <span class="pr-number">#231</span>
-        <span class="pr-title">Button Styling Standardization &amp; Admin UI Fixes</span>
+        <span class="pr-title">Button Styling Standardization & Admin UI Fixes</span>
         <span class="pr-branch">hector/admin-ui-fix2</span>
-        <span class="pr-date">Sep 8</span>
+        <span class="pr-date">2025-09-08</span>
       </li>
       <li>
         <span class="pr-number">#228</span>
         <span class="pr-title">feat: Add support for N dancers per battle</span>
         <span class="pr-branch">ari/n-dancers-v2</span>
-        <span class="pr-date">Sep 1</span>
+        <span class="pr-date">2025-09-01</span>
       </li>
       <li>
         <span class="pr-number">#216</span>
         <span class="pr-title">Add keyboard navigation system for admin screensharing</span>
         <span class="pr-branch">hector/admin-view-screenshare</span>
-        <span class="pr-date">Aug 11</span>
+        <span class="pr-date">2025-08-11</span>
       </li>
       <li>
         <span class="pr-number">#200</span>
         <span class="pr-title">Draft: Add microphone and speech to text functionality to feedback input box</span>
         <span class="pr-branch">jessica/speech-to-text-feedback</span>
-        <span class="pr-date">Jul 13</span>
+        <span class="pr-date">2025-07-13</span>
       </li>
       <li>
         <span class="pr-number">#195</span>
         <span class="pr-title">Social Media Community Page/IG Icon Updates</span>
         <span class="pr-branch">hector/ig-icons</span>
-        <span class="pr-date">Jun 22</span>
+        <span class="pr-date">2025-06-22</span>
       </li>
       <li>
         <span class="pr-number">#185</span>
         <span class="pr-title">Update README for Database Client not showing on Mac</span>
         <span class="pr-branch">hector/update-README</span>
-        <span class="pr-date">Jun 2</span>
+        <span class="pr-date">2025-06-02</span>
       </li>
       <li>
         <span class="pr-number">#178</span>
         <span class="pr-title">Senza hackathon</span>
         <span class="pr-branch">senza-hackathon</span>
-        <span class="pr-date">May 18</span>
+        <span class="pr-date">2025-05-18</span>
       </li>
       <li>
         <span class="pr-number">#173</span>
         <span class="pr-title">Pages: Voter and TV-Lobby for mobile and tv view</span>
         <span class="pr-branch">hector/tv-landing-page</span>
-        <span class="pr-date">May 17</span>
+        <span class="pr-date">2025-05-17</span>
       </li>
       <li>
         <span class="pr-number">#169</span>
         <span class="pr-title">Create Lobby page for TV Flow</span>
         <span class="pr-branch">austin/tv-flow-lobby-page</span>
-        <span class="pr-date">May 16</span>
+        <span class="pr-date">2025-05-16</span>
       </li>
       <li>
         <span class="pr-number">#163</span>
         <span class="pr-title">Mobile View for Admin Scores</span>
         <span class="pr-branch">hector/mobile-admin-scores</span>
-        <span class="pr-date">Apr 18</span>
+        <span class="pr-date">2025-04-18</span>
       </li>
       <li>
         <span class="pr-number">#162</span>
         <span class="pr-title">Mobile view for admin edit scores timer</span>
         <span class="pr-branch">hector/mobile-admin-edit-scores-timer</span>
-        <span class="pr-date">Apr 18</span>
+        <span class="pr-date">2025-04-18</span>
       </li>
       <li>
         <span class="pr-number">#161</span>
         <span class="pr-title">Mobile view: Admin Round Control</span>
         <span class="pr-branch">hector/mobile-admin-round-control</span>
-        <span class="pr-date">Apr 17</span>
+        <span class="pr-date">2025-04-18</span>
       </li>
       <li>
         <span class="pr-number">#160</span>
         <span class="pr-title">Mobile View: Admin Upload Page</span>
         <span class="pr-branch">hector/frontend-adminlobby-mobile</span>
-        <span class="pr-date">Apr 17</span>
+        <span class="pr-date">2025-04-17</span>
       </li>
       <li>
         <span class="pr-number">#159</span>
         <span class="pr-title">Add Download Scores Button to Admin Scores</span>
         <span class="pr-branch">austin/add-download-scores-button-admin-scores</span>
-        <span class="pr-date">Mar 28 '25</span>
+        <span class="pr-date">2025-03-28</span>
       </li>
     </ul>
   </div>
 
-  <!-- Today's Memory -->
+  <!-- Memory -->
   <div class="card full">
-    <h2>Today&#39;s Memory — 2026-03-28 (11:00 AM PT, no 03-29 log yet)</h2>
-    <div class="memory-content"># 2026-03-28
+    <h2>Today's Memory — 2026-03-29</h2>
+    <div class="memory-content">
+## [00:15 PT | Claude Code]
+- Fixed duplicate email error detection in create-account flow (TAP-142)
+- Root cause: createErrorResponse() double-wraps error in { body: { error: &quot;...&quot; } } but frontend expects { error: &quot;...&quot; } at top level
+- Fixed by returning { error: &quot;...&quot; } directly, also removed PII from unauthenticated error response
 
-## [01:30 PT | Claude Code]
-- Rewrote match redistribution to reuse existing match IDs instead of delete+recreate
-- New `computeDancerGroupings` pure function — single source of truth for all 4 distribution cases (even, 1v1 odd→3-way, expand last groups, smaller remainder)
-- Scored and voted matches are never touched (checks score, match_vote, tournament_match tables)
-- localStorage scores keyed by match ID survive redistribution
-- Set up Linear MCP server — connected to Tap In team, verified TAP-22 ticket
-- TAP-22 requirement: "Must not reshuffle or delete previous matches" — now satisfied
+## [00:30 PT | Claude Code]
+- Fixed duplicate email detection in create-account flow (TAP-142)
+- Root cause: first duplicate check compared undefined === undefined (both dancer.id and existingDancerById?.id undefined for new accounts), firing before the correct new-dancer check
+- Added dancer.id guard + fixed createErrorResponse double-wrapping on both code paths
+- User confirmed fix working locally — duplicate email now shows &quot;Log In&quot; button instead of generic error
 
-## [02:55 PT | Claude Code]
-- Fixed new dancer showing no stars on judging page — scores array extended when dancerIds grows mid-round
-- Fixed computeDancerGroupings returning 0 groups when fewer dancers than matchSize (dancer was lost)
-- Added guard: 0 dancers → empty array, fewer than matchSize → single group with all dancers
-- Fixed slot column in match_dancer INSERT (was missing NOT NULL column)
+## [00:50 PT | Claude Code]
+- Fixed create-account duplicate email UX (TAP-142)
+- &quot;Log In&quot; changed from big red button to underlined red link — no longer competes with &quot;Create Account&quot; CTA
+- Login page &quot;no account&quot; now links to /create-account with email pre-filled instead of &quot;Try a different email&quot;
+- Root cause of generic error: undefined === undefined in dancer.id check + createErrorResponse double-wrapping
 
-## [03:15 PT | Claude Code]
-- Cleaned up debug logs in matchDistribution.ts — reduced from 12 to 3 (start, plan, result)
-- Removed verbose debug logs from JudgingContent.tsx WebSocket handler
-- Deleted plan docs (ADD_DANCER_MID_BATTLE_PLAN.md, SCORE_MIGRATION_ON_REDISTRIBUTE.md) before merge
-- Reverted accidental commit of junk .md files at repo root
+## [01:00 PT | Claude Code]
+- Rules review fixes for TAP-142 create-account-errors branch
+- Replaced catch(error: any) with catch(error: unknown) + instanceof narrowing
+- Replaced inline styles on Login Link with Tailwind utilities
+- Removed dead CSS classes (.loginInlineButton, .duplicateEmailSub)
 
-## [03:30 PT | Claude Code]
-- Rules review fixes: transaction wrapping (BEGIN/COMMIT/ROLLBACK) for redistributeMatches, typed DancerRef interface (no more any[]), generic error message (no schema leak to client), removed dead getAllBattlersInBattle function
-- Connected Linear MCP server — TAP-22 ticket linked with PR #351 comment
+## [01:45 PT | Claude Code]
+- Pushed TAP-126 hide-score-results with superlative awards
+- Changed Google Sheet read from A22 to A9 for hideScoreResults setting
+- Added &quot;You were voted...&quot; section showing first-place categories as superlatives
+- Uses V1 scores (not by-round view) since only V1 has rank_in_category
+- Detects ties via percentileInCategory &lt; 100
+- V1/V2 audit completed: TAP-144 created, root cause is _by_round view missing rank columns, frontend needs consolidation
 
-## [04:00 PT | Claude Code]
-- PR #363 (create-account flow) rules review fixes: strip PII from POST /api/dancer response, remove inline style, bump button to 44px touch target, fix sub-16px font sizes, document auth model for rate limiting
+## [02:10 PT | Claude Code]
+- Merged TAP-126 hideScoreResults to staging (PR #360)
+- Superlative &quot;You were voted...&quot; section with tie detection
+- Reads from Extra Settings A9, uses V1 scores for rank data
+- Styling matches Feedback section pattern
 
-## [04:30 PT | Claude Code]
-- Tournament bracket size PR (#359): fixed setState-during-render (moved to useEffect), removed dead bracketOptions state and unused BracketOption import
-- Cleaned up merged local branches, updated staging → main PR #362 description with create-account commits
-
-## [05:00 PT | Claude Code]
-- Fixed React hooks order violation crashing admin-scores page — useEffect was placed after an early return, causing "Rendered more hooks than during the previous render" error. Moved useEffect above the early return.
-
-## [05:15 PT | Claude Code]
-- Removed useEffect for bracket size entirely — was causing hydration issues and hooks-after-early-return violations. Now derives default bracket size inline from computed options, no hooks needed.
-
-## [05:30 PT | Claude Code]
-- Root cause of admin-scores redirect: useEffect checked token before localStorage hydrated (token was false on first render). Fixed by checking `isHydrated` flag before redirecting.
-- Traced admin-scores redirect root cause: GIF hydration mismatch → error boundary re-mount → localStorage reset → auth redirect with empty token
-- Replaced hooks-before-early-returns lesson with hydration-guard-auth-redirects lesson (more accurate)
-- Fix: check `isHydrated` before auth redirects
-
-## [06:00 PT | Claude Code]
-- Fixed tournament format dropdown: grammar (1 bye not 1 byes), moved above buttons, restyled with red border and full width
-- Still need to fix: bye match nil error on finalize tournament
-
-## [06:30 PT | Claude Code]
-- Fixed seedTournamentBracket crash with non-power-of-2 dancer counts (7 dancers → seeding generated 8 positions → index out of bounds → undefined dancer)
-- Dimmed eliminated dancers in admin-scores table based on bracket selection
-- Fixed grammar: "1 byes" → "1 bye"
-- Moved tournament format dropdown above buttons with better styling
-
-## [06:45 PT | Claude Code]
-- Fixed bye assignment: top seeds now get byes (not lowest scorers). Added seedTournamentBracketWithByes that places nulls at correct bracket positions using the seeding algorithm.
-
-## [07:15 PT | Claude Code]
-- Moved tournament format selector from admin-scores to admin-tournament-preview page. Admin-scores now just shows scores. Bracket format decision is on the preview page where you see the bracket.
-
-## [07:30 PT | Claude Code]
-- Fixed bye placement — was double-seeding (seededDancers already bracket-shuffled, then seedTournamentBracketWithByes re-seeded). Now uses qualifiedDancers (rank order) as input.
-
-## [07:45 PT | Claude Code]
-- Fixed preview bracket bye placement — TournamentBracket was padding nulls at end, now uses seedTournamentBracketWithByes with qualifiedDancers (rank order) for correct seeded bye positions. Top seed should get bye.
-- Added isHydrated guard to admin-tournament-preview login redirect
-
-## [08:00 PT | Claude Code]
-- Bye winners now visually advance to next round in preview bracket — instead of "TBD", the bye winner's name shows in their next round slot
-
-## [08:15 PT | Claude Code]
-- Fixed bye cascading through all rounds — only first round treats null opponents as byes, later rounds show TBD
-
-## [08:30 PT | Claude Code]
-- Fixed finalize tournament crash: bye code was updating `match.is_complete` which doesn't exist — fixed to update `tournament_match.is_complete` instead
-
-## [08:45 PT | Claude Code]
-- Auto-advance past bye rounds in tournament mode — detects bye match (1 dancer, already complete with winner) and auto-clicks move-on after 500ms delay
-- Fixed is_complete column error on match table (doesn't exist, was on tournament_match)
-
-## [09:00 PT | Claude Code]
-- Fixed bye winner not appearing in next round — createTournamentMatches now inserts bye winner into next round's match_dancer table during tournament creation (third pass after setting next_match_id relationships)
-
-## [09:30 PT | Claude Code]
-- Fixed calculateMatchWinner failing for bye-advanced matches — bye winner was only in match_dancer junction table, not in legacy dancer1_id/dancer2_id columns that calculateMatchWinner reads. Now updates both on tournament creation.</div>
-  </div>
-
-  <!-- Quick Links -->
-  <div class="card full">
-    <h2>Quick Links</h2>
-    <div class="links">
-      <a href="https://github.com/lglucin/artgg" target="_blank">
-        <span class="link-label">GitHub</span>
-        artgg repo
-      </a>
-      <a href="https://tsdr.uspto.gov/#caseNumber=99324507&caseSearchType=US_APPLICATION&caseType=DEFAULT&searchType=statusSearch" target="_blank">
-        <span class="link-label">Trademark Status</span>
-        TSDR #99324507
-      </a>
-      <a href="https://t-api-n-staging-2eed87cd3eee.herokuapp.com/health" target="_blank">
-        <span class="link-label">Staging API</span>
-        Heroku health
-      </a>
-      <a href="https://www.taptaptap.in" target="_blank">
-        <span class="link-label">Production</span>
-        taptaptap.in
-      </a>
-      <a href="https://vercel.com/lglucins-projects" target="_blank">
-        <span class="link-label">Deployments</span>
-        Vercel dashboard
-      </a>
-      <a href="https://teas.uspto.gov" target="_blank">
-        <span class="link-label">Trademark Filing</span>
-        TEAS
-      </a>
-    </div>
+## [15:42 PT | Claude Code]
+- Implemented comprehensive PostHog tracking on `feature/posthog-improved-tracking`
+- Created `app/analytics/events.ts` — centralized typed event helpers with environment detection + test-user filtering
+- Updated `PostHogProvider.tsx` — super-properties (environment, app_version) + person tagging for staging/dev filtering
+- Added `identifyUser` + `trackLoginSuccess`/`trackLoginFailed` in LoginContent
+- Added `trackAccountCreated` in CreateAccountContent
+- Added `trackBattleSelected` in battles page
+- Added `trackLobbyEntered` in LobbyContent
+- Added `trackScoreSubmitted` + `trackVoteSubmitted` in JudgingContent
+- Added `trackWinnerDecided` in useDecideWinner hook
+- All events auto-include environment + is_test_user properties for dashboard filtering</div>
   </div>
 
 </div>
-
 </body>
 </html>
